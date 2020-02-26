@@ -17,6 +17,12 @@ class Inicio extends Component{
                         <CardItem bordered>
                           <Text style={misEstilos.textCenter}>
                             Tu nombre es:{this.props.route.params.nombreU}
+                          </Text>
+                        </CardItem>
+                        </Item>
+                        <Item inlineLabel>
+                        <CardItem bordered>
+                          <Text style={misEstilos.textCenter}>
                             Tu contraseña es:{this.props.route.params.contraseña}
                           </Text>
                         </CardItem>

@@ -4,7 +4,7 @@ import {StyleSheet, Keyboard} from 'react-native';
 import { ThemeProvider } from '@react-navigation/native';
 
 class Registro extends Component{
-      Constructor(props){
+      constructor(props){
         super(props);
         this.state={nombreU:'',contraseña:''};
       }
@@ -19,11 +19,15 @@ class Registro extends Component{
                     <Body style = {misEstilos.content}>
                         <Item inlineLabel>
                         <Icon type = 'FontAwesome' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombreU}/>
+                        <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombreU}
+                          onChangeText={(nombreU) => this.setState({nombreU})}
+                        />
                         </Item>
                         <Item inlineLabel last>
                         <Icon type = 'FontAwesome' name = 'lock'></Icon>
-                        <Input placeHolder='Contraseña' keyboardType="visible-password"/>
+                        <Input placeHolder='Contraseña' type="text" value={this.state.contraseña} 
+                          onChangeText={(contraseña) => this.setState({contraseña})}
+                        />
                         </Item>
                     </Body>
                 </CardItem>

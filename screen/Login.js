@@ -35,7 +35,7 @@ class Login extends Component{
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
                         <Icon type = 'FontAwesome' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombre}/>
+                        <Input placeHolder='Nombre de usuario'/>
                         <Icon type = 'Feather' name = 'user-check'></Icon>
                         <Input placeHolder='Nombre de usuario'/>
                       </Item>
