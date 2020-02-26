@@ -35,7 +35,7 @@ class Login extends Component{
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
                         <Icon type = 'FontAwesome' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario'/>
+                        <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombre}/>
                         <Icon type = 'Feather' name = 'user-check'></Icon>
                         <Input placeHolder='Nombre de usuario'/>
                       </Item>
@@ -51,13 +51,13 @@ class Login extends Component{
                     <CardItem footer bordered>
                         <Button primary onPress={() => { navegar.navigate('Registro', {
                             titulo:'Registro usuario',
-                            nombre: 'Vanessa'
+                            nombre: 'Vanessa' 
                             })}
                         }>
                           <Text> Registrase </Text>
                         </Button>
                         <Button success style = {misEstilos.content}>
-                          <Text> Entrar </Text>
+                          <Text> Guardar </Text>
                         </Button>
                     </CardItem>
                     </Body>

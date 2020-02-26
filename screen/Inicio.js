@@ -14,15 +14,17 @@ class Inicio extends Component{
                     <CardItem bordered>
                     <Body style = {misEstilos.content}>
                         <Item inlineLabel>
-
-                        </Item>
-                        <Item inlineLabel last>
-
+                        <CardItem bordered>
+                          <Text style={misEstilos.textCenter}>
+                            Tu nombre es:{this.props.route.params.nombreU}
+                            Tu contraseña es:{this.props.route.params.contraseña}
+                          </Text>
+                        </CardItem>
                         </Item>
                     </Body>
                 </CardItem>
                 <CardItem footer bordered>
-                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Registro')}>
+                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Login')}>
                     <Text> Regresar </Text>
                     </Button>
                 </CardItem>

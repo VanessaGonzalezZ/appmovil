@@ -4,26 +4,26 @@ import {StyleSheet, Keyboard} from 'react-native';
 import { ThemeProvider } from '@react-navigation/native';
 
 class Registro extends Component{
+      Constructor(props){
+        super(props);
+        this.state={nombreU:'',contraseña:''};
+      }
     render(){
         const navegar = this.props.navigation;
         return(
             <Container>
                 <Card>
                     <CardItem header bordered>
-                    <Text style = {misEstilos.textCenter}>
-                        {this.props.route.params.titulo}
-                        {this.props.route.params.nombre}
-                    </Text>
                     </CardItem>
                     <CardItem bordered>
                     <Body style = {misEstilos.content}>
                         <Item inlineLabel>
                         <Icon type = 'FontAwesome' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario' keyboardType="email-address"/>
+                        <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombreU}/>
                         </Item>
                         <Item inlineLabel last>
                         <Icon type = 'FontAwesome' name = 'lock'></Icon>
-                        <Input placeHolder='Contraseña' keyboardTyp="visible-password"/>
+                        <Input placeHolder='Contraseña' keyboardType="visible-password"/>
                         </Item>
                     </Body>
                 </CardItem>
@@ -31,9 +31,10 @@ class Registro extends Component{
                     <Button success style = {misEstilos.content} success onPress={() => navegar.navigate('Login')}>
                         <Text> Login </Text>
                     </Button>
-                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Inicio')}>
-                    <Text> Entrar </Text>
-                    </Button>
+                    <Button success style = {misEstilos.content} onPress={() =>navegar.navigate('Inicio', 
+                                  {nombreU:this.state.nombreU, contraseña:this.state.contraseña})}>
+                          <Text> Iniciar sesion </Text>
+                        </Button>
                 </CardItem>
                 </Card>
             </Container>
