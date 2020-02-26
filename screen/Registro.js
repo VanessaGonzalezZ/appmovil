@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { Container,Content, Card, CardItem, Text, Body, Button, Input, Item, Icon} from 'native-base';
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, Keyboard} from 'react-native';
 import { ThemeProvider } from '@react-navigation/native';
 
 class Registro extends Component{
@@ -19,11 +19,11 @@ class Registro extends Component{
                     <Body style = {misEstilos.content}>
                         <Item inlineLabel>
                         <Icon type = 'FontAwesome' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario'/>
+                        <Input placeHolder='Nombre de usuario' keyboardType="email-address"/>
                         </Item>
                         <Item inlineLabel last>
                         <Icon type = 'FontAwesome' name = 'lock'></Icon>
-                        <Input placeHolder='Contraseña'/>
+                        <Input placeHolder='Contraseña' keyboardTyp="visible-password"/>
                         </Item>
                     </Body>
                 </CardItem>
@@ -31,7 +31,7 @@ class Registro extends Component{
                     <Button success style = {misEstilos.content} success onPress={() => navegar.navigate('Login')}>
                         <Text> Login </Text>
                     </Button>
-                    <Button primary style = {misEstilos.content}>
+                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Inicio')}>
                     <Text> Entrar </Text>
                     </Button>
                 </CardItem>

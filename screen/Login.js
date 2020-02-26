@@ -11,7 +11,7 @@ class Login extends Component{
               <Content padder contentContainerStyle = {misEstilos.content}>
                 <Card>
                   <CardItem header bordered>
-                    <Text>Crear cuenta</Text>
+                    <Text>Página de Inicio</Text>
                   </CardItem>
                   <CardItem>
                     <Text>Logueate con tu red social o Email</Text>
