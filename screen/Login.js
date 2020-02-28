@@ -20,10 +20,10 @@ class Login extends Component{
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
                         <Button primary style ={misEstilos.content}>
-                        <Icon type = 'FontAwesome' name = 'facebook'></Icon>
+                        <Icon type = 'Entypo' name = 'facebook'></Icon>
                         </Button>
                         <Button danger style ={misEstilos.content}>
-                        <Icon type = 'FontAwesome' name = 'google'></Icon>
+                        <Icon type = 'AntDesign' name = 'google'></Icon>
                         </Button>
                       </Item>
                     </Body>
@@ -34,7 +34,7 @@ class Login extends Component{
                 <CardItem bordered>
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
-                        <Icon type = 'FontAwesome' name = 'user'></Icon>
+                        <Icon type = 'AntDesign' name = 'user'></Icon>
                         <Input placeHolder='Nombre de usuario'/>
                         <Icon type = 'Feather' name = 'user-check'></Icon>
                         <Input placeHolder='Nombre de usuario'/>
@@ -44,7 +44,7 @@ class Login extends Component{
                         <Input placeHolder='Email'/>
                       </Item>
                       <Item inlineLabel>
-                        <Icon type = 'FontAwesome' name = 'lock'></Icon>
+                        <Icon type = 'AntDesign' name = 'lock'></Icon>
                         <Input placeHolder='password'/>
                         <Button><Icon type = 'Feather' name = 'eye'></Icon></Button>
                       </Item>
@@ -54,7 +54,7 @@ class Login extends Component{
                             nombre: 'Vanessa' 
                             })}
                         }>
-                          <Text> Registrase </Text>
+                          <Text> Registrarse </Text>
                         </Button>
                         <Button success style = {misEstilos.content}>
                           <Text> Guardar </Text>
