@@ -35,6 +35,7 @@ class Inicio extends Component{
                     </Button>
                 </CardItem>
                 </Card>
+                
             </Container>
     );
     }
