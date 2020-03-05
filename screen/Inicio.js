@@ -33,6 +33,14 @@ class Inicio extends Component{
                     <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Login')}>
                     <Text> Regresar </Text>
                     </Button>
+                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('Principal')}>
+                    <Text> Peliculas </Text>
+                    </Button>
+                </CardItem>
+                <CardItem footer bordered>
+                    <Button primary style = {misEstilos.content} success onPress={() => navegar.navigate('API2')}>
+                    <Text> Otra API </Text>
+                    </Button>
                 </CardItem>
                 </Card>
                 

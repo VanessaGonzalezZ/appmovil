@@ -1,7 +1,6 @@
 import React,{ Component } from 'react';
 import { Container, Card, CardItem, Text, Body, Button, Input, Item, Icon, View} from 'native-base';
 import {StyleSheet, ActivityIndicator} from 'react-native';
-import SwitchExample from './Switch_example';
 import {Switch} from 'react-native';
 
 
