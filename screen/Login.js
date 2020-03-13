@@ -10,7 +10,9 @@ class Login extends Component{
 };
       constructor(props){
         super(props);
-        this.state={nombreU:'',contraseña:''};
+        this.state={nombreU:'',
+                    correo:'',
+                    contraseña:''};
       }
       state={
         showIndicator:false,
@@ -38,14 +40,20 @@ class Login extends Component{
                 <CardItem bordered>
                   <Body style = {misEstilos.content}>
                     <Item inlineLabel>
-                    <Icon type = 'AntDesign' name = 'user'></Icon>
-                    <Input placeHolder='Nombre de usuario' type="text" value={this.state.nombreU}
+                    <Icon type = 'AntDesign' name = 'user' style={{paddingVertical:35}}></Icon>
+                    <Input placeholder='Nombre de usuario' type="text" value={this.state.nombreU}
                       onChangeText={(nombreU) => this.setState({nombreU})}
                     />
                     </Item>
                     <Item inlineLabel last>
                     <Icon type = 'AntDesign' name = 'lock'></Icon>
-                    <Input placeHolder='Contraseña' type="text" value={this.state.contraseña} 
+                    <Input placeholder='Correo' type="text" value={this.state.correo} 
+                      onChangeText={(correo) => this.setState({correo})}
+                    />
+                    </Item>
+                    <Item inlineLabel last>
+                    <Icon type = 'AntDesign' name = 'lock'></Icon>
+                    <Input placeholder='Contraseña' type="text" value={this.state.contraseña} 
                       onChangeText={(contraseña) => this.setState({contraseña})}
                     />
                     </Item>

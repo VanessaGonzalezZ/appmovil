@@ -5,19 +5,18 @@ import { FlatList } from 'react-native-gesture-handler';
 class API2 extends Component{
     constructor(props){
         super(props);
-        this.state = {isLoading2: true
-        }
+        this.state = {isLoading: true}
     }
 
     async componentWillMount(){
         try{
-            const reponse =
-                await fetch('https://swapi.co/api/planets/')
-            const reponseJson = await reponse.json()
+            const response =
+                await fetch('https://swapi.co/api/planets')
+            const responseJson = await response.json()
 
             this.setState({
-                isLoading2: false,
-                dataSource: reponseJson.result,
+                isLoading: false,
+                dataSource: responseJson.results,
             }, function(){
             });
         }
@@ -27,8 +26,7 @@ class API2 extends Component{
     }
 
     render(){
-        const navegar = this.props.navigation;
-        if(this.state.isLoading2){
+        if(this.state.isLoading){
             return(
                 <View style={{flex:1, padding:20}}>
                     <ActivityIndicator/>
@@ -37,12 +35,13 @@ class API2 extends Component{
         }
         return(
             <View>
-                <FlatList data={this.state.dataSource}
+                <FlatList 
+                data={this.state.dataSource}
                 renderItem={({item}) => 
-                <Text>{item.name}, {item.rotation_period}, {item.orbital_period}, {item.diameter}, 
-                {item.climate}, {item.gravity}, {item.terrain}, {item.surface_water}, 
-                {item.population}, {item.residents}, {item.films}, {item.created},
-                {item.edited}, {item.url}</Text>}
+                <Text>{item.name}, {item.rotation_period}, {item.diameter}, 
+                {item.climate}, {item.terrain}, {item.surface_water}, 
+                {item.population}, {item.residents}, {item.films}</Text>}
+                keyExtractor={({id},index) => id}
                 />
             </View>
         );

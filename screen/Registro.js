@@ -4,6 +4,41 @@ import {StyleSheet} from 'react-native';
 
 
 class Registro extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      nombreU: '',
+      email: '',
+      contraseña: ''
+    };
+  }
+
+
+  regisU = () =>{
+    const {nombreU} = this.state;
+    const {correo} = this.state;
+    const {contraseña} = this.state;
+
+    fetch('http://hardeepcoder.com/react/register.php',{
+      method: 'post',
+      header:{
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      body:JSON.stringify({
+        nombreU:nombreU,
+        correo: correo,
+        contraseña:contraseña,
+      })
+    })
+    .then((response) => response.json)
+      .then((response) =>{
+        alert(responseJson);
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
     render(){
         const navegar = this.props.navigation;
         return(
@@ -35,18 +70,21 @@ class Registro extends Component{
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'user'></Icon>
-                        <Input placeHolder='Nombre de usuario'/>
-                        <Icon type = 'Feather' name = 'user-check'></Icon>
-                        <Input placeHolder='Nombre de usuario'/>
+                        <Input placeholder='Nombre de usuario' 
+                        onChangeText={nombreU=>this.setState({nombreU})}/>
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'MaterialIcons' name = 'email'></Icon>
-                        <Input placeHolder='Email'/>
+                        <Input placeholder='Email'
+                          onChangeText={correo=>this.setState({correo})}
+                        />
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'lock'></Icon>
-                        <Input placeHolder='password'/>
-                        <Button><Icon type = 'Feather' name = 'eye'></Icon></Button>
+                        <Input placeholder='password'
+                          onChangeText={contraseña=>this.setState({contraseña})}
+                        />
+                        <Button><Icon type = 'Feather' name = 'eye' ></Icon></Button>
                       </Item>
                     <CardItem footer bordered>
                         <Button primary onPress={() => { navegar.navigate('Login', {
@@ -56,7 +94,8 @@ class Registro extends Component{
                         }>
                           <Text> Loguearse </Text>
                         </Button>
-                        <Button success style = {misEstilos.content}>
+                        <Button success style = {misEstilos.content} 
+                        onPress={this.userRegister}>
                           <Text> Guardar </Text>
                         </Button>
                     </CardItem>
