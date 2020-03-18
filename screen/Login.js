@@ -2,17 +2,18 @@ import React,{ Component } from 'react';
 import { Container, Card, CardItem, Text, Body, Button, Input, Item, Icon, View} from 'native-base';
 import {StyleSheet, ActivityIndicator} from 'react-native';
 import {Switch} from 'react-native';
+import api from '../data/api';
 
 
 class Login extends Component{
   state = {  
     switchValue: false  
 };
-      constructor(props){
-        super(props);
-        this.state={nombreU:'',
-                    correo:'',
-                    contraseña:''};
+  constructor(props){
+    super(props);
+    this.state={
+      username:'',
+      pass:''};
       }
       state={
         showIndicator:false,
@@ -22,6 +23,17 @@ class Login extends Component{
           showIndicator:true
         }),
       this.props.navigation.navigate('Inicio',{nombreU:this.state.nombreU, contraseña:this.state.contraseña});
+      }
+
+      login = async () => {
+        let validarLog = await api.validarLog(this.state.username, this.state.pass)
+
+        if(validarLog.status == 1){
+          this.props.navigation.navigate('Principal');
+        }
+        else{
+          Alert.alert('Usuario o clave invalidos');
+        }
       }
     render(){
         const navegar = this.props.navigation;
@@ -67,6 +79,14 @@ class Login extends Component{
                 <Button success style = {misEstilos.content} onPress={() =>navegar.navigate('Inicio', 
                   {nombreU:this.state.nombreU, contraseña:this.state.contraseña})}>
                   <Text> Iniciar sesion </Text>
+                </Button>
+              </CardItem>
+              <CardItem>
+                <Button success style = {misEstilos.content} onPress={() =>navegar.navigate('Registro')}>
+                  <Text> Registrarse </Text>
+                </Button>
+                <Button success style = {misEstilos.content} onPress={() => {this.login()}}>
+                  <Text> Entrar </Text>
                 </Button>
               </CardItem>
               <View style={misEstilos.container}>

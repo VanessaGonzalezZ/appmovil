@@ -1,44 +1,20 @@
 import React,{ Component } from 'react';
 import { Container,Content, Card, CardItem, Text, Body, Button, Input, Item, Icon} from 'native-base';
 import {StyleSheet} from 'react-native';
-
+import api from '../data/api';
 
 class Registro extends Component{
   constructor(props){
     super(props);
     this.state = {
-      nombreU: '',
+      user: '',
       email: '',
-      contraseña: ''
+      pass: ''
     };
   }
 
 
-  regisU = () =>{
-    const {nombreU} = this.state;
-    const {correo} = this.state;
-    const {contraseña} = this.state;
-
-    fetch('http://hardeepcoder.com/react/register.php',{
-      method: 'post',
-      header:{
-        'Accept': 'application/json',
-        'Content-type': 'application/json'
-      },
-      body:JSON.stringify({
-        nombreU:nombreU,
-        correo: correo,
-        contraseña:contraseña,
-      })
-    })
-    .then((response) => response.json)
-      .then((response) =>{
-        alert(responseJson);
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
-  }
+  register = () => api.registerData(this.state.email, this.state.user, this.state.pass);
     render(){
         const navegar = this.props.navigation;
         return(
@@ -71,18 +47,18 @@ class Registro extends Component{
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'user'></Icon>
                         <Input placeholder='Nombre de usuario' 
-                        onChangeText={nombreU=>this.setState({nombreU})}/>
+                        onChangeText={(user)=>this.setState({user})}/>
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'MaterialIcons' name = 'email'></Icon>
                         <Input placeholder='Email'
-                          onChangeText={correo=>this.setState({correo})}
+                          onChangeText={(email)=>this.setState({email})}
                         />
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'lock'></Icon>
                         <Input placeholder='password'
-                          onChangeText={contraseña=>this.setState({contraseña})}
+                          onChangeText={(pass)=>this.setState({pass})}
                         />
                         <Button><Icon type = 'Feather' name = 'eye' ></Icon></Button>
                       </Item>
@@ -95,7 +71,7 @@ class Registro extends Component{
                           <Text> Loguearse </Text>
                         </Button>
                         <Button success style = {misEstilos.content} 
-                        onPress={this.userRegister}>
+                        onPress={this.register}>
                           <Text> Guardar </Text>
                         </Button>
                     </CardItem>
