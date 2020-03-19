@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Card, CardItem, Text, Body, Button, Input, Item, Icon, View} from 'native-base';
 import {StyleSheet, ActivityIndicator} from 'react-native';
-import {Switch} from 'react-native';
+import {Switch, Alert} from 'react-native';
 import api from '../api';
 
 
