@@ -13,7 +13,8 @@ class Login extends Component{
     super(props);
     this.state = {
       username:'',
-      pass:''}
+      pass:''
+    }
   }
 
   login = async () => {
@@ -46,8 +47,7 @@ class Login extends Component{
                     <Item inlineLabel>
                     <Icon type = 'AntDesign' name = 'user' style={{paddingVertical:35}}></Icon>
                     <Input placeholder='Nombre de usuario' 
-                      onChangeText = {(username) =>this.setState({username})}
-                    />
+                      onChangeText = {(username) =>this.setState({username})}/>
                     </Item>
                     <Item inlineLabel last>
                     <Icon type = 'AntDesign' name = 'lock'></Icon>
@@ -60,9 +60,9 @@ class Login extends Component{
               </CardItem>
               <CardItem footer bordered>
                   <Button success style = {misEstilos.content} 
-                        onPress ={() => navegar.navigate('Registro',{
-                                pass: this.state.pass,
-                                username: this.state.username})}>
+                        onPress ={() => {navegar.navigate('Registro',{
+                                titulo: 'Registro usuario',
+                                nombre: 'Vanessa'});}}>
                         <Text>Realizar Registro</Text>
                         </Button>
 

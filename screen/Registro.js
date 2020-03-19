@@ -14,7 +14,7 @@ class Registro extends Component{
   }
   
 
-  register = () => api.registerData(this.state.email, this.state.user, this.state.pass)
+  register = () => api.registerData(this.state.email, this.state.user, this.state.pass);
    
   
   render(){
@@ -49,27 +49,26 @@ class Registro extends Component{
                       <Item inlineLabel>
                         <Icon type = 'MaterialIcons' name = 'email'></Icon>
                           <Input placeholder='Email'
-                            onChangeText={(email)=>this.setState({email})}
-                          />
+                            onChangeText = {(email) => this.setState({email})}/>
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'user'></Icon>
                         <Input placeholder='Nombre de usuario' 
-                        onChangeText={(user)=>this.setState({user})}/>
+                        onChangeText = {(user) => this.setState({user})}/>
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'lock'></Icon>
                         <Input placeholder='password'
-                          onChangeText={(pass)=>this.setState({pass})}
+                          onChangeText = {(pass) => this.setState({pass})}
                         />
                         <Button><Icon type = 'Feather' name = 'eye' ></Icon></Button>
                       </Item>
                     <CardItem footer bordered>
-                        <Button primary onPress={() => { navegar.navigate('Login')}}>
+                        <Button primary onPress={() => navegar.navigate('Login')}>
                           <Text> Login </Text>
                         </Button>
                         <Button success style = {misEstilos.content} 
-                        onPress={this.register}>
+                        onPress = {this.register}>
                           <Text> Guardar </Text>
                         </Button>
                     </CardItem>
