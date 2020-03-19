@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import { Container, Card, CardItem, Text, Body, Button, Input, Item, Icon, View} from 'native-base';
 import {StyleSheet, ActivityIndicator} from 'react-native';
 import {Switch} from 'react-native';
@@ -22,8 +22,11 @@ class Login extends Component{
         this.setState({
           showIndicator:true
         }),
-      this.props.navigation.navigate('Inicio',{nombreU:this.state.nombreU, contraseña:this.state.contraseña});
+      this.props.navigation.navigate('Inicio',{username:this.state.username, pass:this.state.pass});
       }
+
+
+      
 
       login = async () => {
         let validarLog = await api.validarLog(this.state.username, this.state.pass)
@@ -53,20 +56,20 @@ class Login extends Component{
                   <Body style = {misEstilos.content}>
                     <Item inlineLabel>
                     <Icon type = 'AntDesign' name = 'user' style={{paddingVertical:35}}></Icon>
-                    <Input placeholder='Nombre de usuario' type="text" value={this.state.nombreU}
-                      onChangeText={(nombreU) => this.setState({nombreU})}
+                    <Input placeholder='Nombre de usuario' type="text" value={this.state.username}
+                      onChangeText={(username) => this.setState({username})}
                     />
                     </Item>
                     <Item inlineLabel last>
                     <Icon type = 'AntDesign' name = 'lock'></Icon>
-                    <Input placeholder='Correo' type="text" value={this.state.correo} 
-                      onChangeText={(correo) => this.setState({correo})}
+                    <Input placeholder='Correo' type="text" value={this.state.email} 
+                      onChangeText={(email) => this.setState({email})}
                     />
                     </Item>
                     <Item inlineLabel last>
                     <Icon type = 'AntDesign' name = 'lock'></Icon>
-                    <Input placeholder='Contraseña' type="text" value={this.state.contraseña} 
-                      onChangeText={(contraseña) => this.setState({contraseña})}
+                    <Input placeholder='Contraseña' type="text" value={this.state.pass} 
+                      onChangeText={(pass) => this.setState({pass})}
                     />
                     </Item>
                   </Body>
@@ -77,7 +80,7 @@ class Login extends Component{
                   <Text> Entrar </Text>
                 </Button>
                 <Button success style = {misEstilos.content} onPress={() =>navegar.navigate('Inicio', 
-                  {nombreU:this.state.nombreU, contraseña:this.state.contraseña})}>
+                  {username:this.state.username, pass:this.state.pass})}>
                   <Text> Iniciar sesion </Text>
                 </Button>
               </CardItem>

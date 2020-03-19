@@ -1,10 +1,11 @@
 import {Alert} from 'react-native';
 
-const URL_DATA ="https://192.168.1.72/iot/data/";
+const URL_DATA = 'http://192.168.1.72/iot/data/';
 
-class api {
+class API {
+
     async validarLog(user, pass){
-        const query = await fetch(`$(URL_DATA)login.php?user=${user}&pass=${pass}`);
+        const query = await fetch(`${URL_DATA}login.php?user=${user}&pass=${pass}`);
         const data =await query.json();
         return data;
     }
@@ -13,12 +14,12 @@ class api {
         fetch(`${URL_DATA}registrar.php`,{
             method: 'POST',
             body: JSON.stringify({
-                email: email,
-                user: user,
-                pass: pass
+                pEmail: email,
+                pUser: user,
+                pPass: pass
             }),
             headers: {
-                'Accept':'application/json',
+                'Accept': 'application/json',
                 'Content-Type':'application/json'
             }
         }).then(response => response.json())
@@ -34,4 +35,4 @@ class api {
     }
 }
 
-export default new api()
+export default new API()

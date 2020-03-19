@@ -12,7 +12,7 @@ class Registro extends Component{
       pass: ''
     };
   }
-
+  
 
   register = () => api.registerData(this.state.email, this.state.user, this.state.pass);
     render(){
