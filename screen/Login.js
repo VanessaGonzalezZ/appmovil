@@ -72,11 +72,20 @@ class Login extends Component{
                         <Text> Entrar </Text>
                     </Button>
               </CardItem>
+              <CardItem>
+                <View>
+                  <Button onPress ={() => {navegar.navigate('API2')}}>
+                    <Text>API 2</Text>
+                  </Button>
+                </View>
+              </CardItem>
+
               <View style={misEstilos.container}>
                <Switch  
                   value={this.state.switchValue}  
                   onValueChange ={(switchValue)=>this.setState({switchValue})}/>  
               </View> 
+              
             </Card>
           </Container>
           </>
