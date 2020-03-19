@@ -1,21 +1,23 @@
 import React,{ Component } from 'react';
 import { Container,Content, Card, CardItem, Text, Body, Button, Input, Item, Icon} from 'native-base';
 import {StyleSheet} from 'react-native';
-import api from '../data/api';
+import api from '../api';
 
 class Registro extends Component{
   constructor(props){
     super(props);
     this.state = {
-      user: '',
       email: '',
+      user: '',
       pass: ''
-    };
+    }
   }
   
 
-  register = () => api.registerData(this.state.email, this.state.user, this.state.pass);
-    render(){
+  register = () => api.registerData(this.state.email, this.state.user, this.state.pass)
+   
+  
+  render(){
         const navegar = this.props.navigation;
         return(
             <Container>
@@ -45,15 +47,15 @@ class Registro extends Component{
                 <CardItem bordered>
                   <Body style = {misEstilos.content}>
                       <Item inlineLabel>
+                        <Icon type = 'MaterialIcons' name = 'email'></Icon>
+                          <Input placeholder='Email'
+                            onChangeText={(email)=>this.setState({email})}
+                          />
+                      </Item>
+                      <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'user'></Icon>
                         <Input placeholder='Nombre de usuario' 
                         onChangeText={(user)=>this.setState({user})}/>
-                      </Item>
-                      <Item inlineLabel>
-                        <Icon type = 'MaterialIcons' name = 'email'></Icon>
-                        <Input placeholder='Email'
-                          onChangeText={(email)=>this.setState({email})}
-                        />
                       </Item>
                       <Item inlineLabel>
                         <Icon type = 'AntDesign' name = 'lock'></Icon>
@@ -63,12 +65,8 @@ class Registro extends Component{
                         <Button><Icon type = 'Feather' name = 'eye' ></Icon></Button>
                       </Item>
                     <CardItem footer bordered>
-                        <Button primary onPress={() => { navegar.navigate('Login', {
-                            titulo:'Registro usuario',
-                            nombre: 'Vanessa' 
-                            })}
-                        }>
-                          <Text> Loguearse </Text>
+                        <Button primary onPress={() => { navegar.navigate('Login')}}>
+                          <Text> Login </Text>
                         </Button>
                         <Button success style = {misEstilos.content} 
                         onPress={this.register}>
@@ -82,7 +80,7 @@ class Registro extends Component{
             </Container>
     );
     }
-}
+};
 
 const misEstilos = StyleSheet.create({
   content: {

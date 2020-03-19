@@ -6,7 +6,7 @@ import Registro from './screen/Registro';
 import Inicio from './screen/Inicio';
 import Principal from './screen/Principal';
 import API2 from './screen/API2';
-import API from './data/api';
+import API from './api';
 
 const Stack = createStackNavigator();
 
